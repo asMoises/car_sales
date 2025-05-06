@@ -1,0 +1,45 @@
+{% extends "base.html" %} {% block content %}
+<!-- <style>
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="file"],
+  select,
+  textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .btn-primary {
+    background-color: #0096c7;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: #0077a3;
+  }
+</style> -->
+
+<h2>Cadastrar Novo Carro</h2>
+
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %} {{ new_car_form.as_p }}
+
+  <input type="submit" value="Cadastrar" class="btn btn-primary" />
+</form>
+{% endblock %}
