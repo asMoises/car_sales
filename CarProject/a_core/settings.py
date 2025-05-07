@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # My Apps
     'a_cars',
+    'a_accounts',
 ]
 
 MIDDLEWARE = [

@@ -19,11 +19,16 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from a_cars.views import cars_view, new_car_view
+from a_accounts.views import register_view
+
+
 # Aqui eu defino todas as rotas do meu projeto.
 # O Django irá mapear as URLs para as views correspondentes.
 urlpatterns = [
     path('admin/', admin.site.urls),
     # O primeiro parâmetro é a URL que será acessada, o segundo parâmetro é uma função (view), que será chamada e o terceiro parâmetro é o nome da URL.
+    path('', cars_view, name='cars_list'),
     path('cars/', cars_view, name='cars_list'),
     path('new_car/', new_car_view, name='new_car'),
+    path('register/', register_view, name='register'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
