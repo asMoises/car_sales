@@ -1,7 +1,7 @@
 from django import forms  
 from a_cars.models import Car, Brand
 
-
+# forma antiga e mais demorada para se usar form.
 class CarForm(forms.Form):
     model = forms.CharField(max_length=200, label='Modelo')
     brand = forms.ModelChoiceField(Brand.objects.all(), label='Marca')   # Quando for chave estrangeira, usar ModelChoiceField.
@@ -24,6 +24,17 @@ class CarForm(forms.Form):
         car.save()
         return car
 
+# Moo produtivo para criar forms.
+class CarModelForm(forms.ModelForm):
+    class Meta:
+        model = Car
+        # Podria ser assim:
+        # fields = ['model', 'brand', 'factory_year', 'mode_year', 'plate', 'value', 'photo']
+      
+        # Mas usarei o recuro "__all__" para pegar todos os campos.
+        fields = '__all__'
 
-
-
+        # Lembrando que no modo anterior, foi preciso indicar o campo brand como chave estrangeira manualmente.
+        # Aqui, o Django já faz isso automaticamente.
+        # 
+  
