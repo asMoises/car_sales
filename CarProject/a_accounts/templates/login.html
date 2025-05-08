@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block content %}
+
+<h2>Entre com sua conta</h2>
+<form method="post">
+  {% csrf_token %}
+
+  <table>
+    {{ login_form.as_table }}
+  </table>
+
+  <button type="submit" value="entrar" class="btn btn-primary">Entrar</button>
+</form>
+<p>Não possui conta? <a href="{% url 'register' %}">Register here</a></p>
+
+{% endblock %}
