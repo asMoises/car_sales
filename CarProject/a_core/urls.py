@@ -26,6 +26,7 @@ from a_accounts.views import login_view, register_view,logout_view
 # O Django irá mapear as URLs para as views correspondentes.
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', login_view, name='login'),
     path('login/', login_view, name='login'),
     path('cars/', cars_view, name='cars_list'),
     path('new_car/', new_car_view, name='new_car'),
